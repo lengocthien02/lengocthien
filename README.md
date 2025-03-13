@@ -5,7 +5,7 @@
 🔹 Experienced in Python, SQL, Power BI, and investment analysis.  
 
 ## 📈 Featured Projects
-- **[Gold Price Forecasting]([https://github.com/lengocthien02/gold-price-forecasting](https://github.com/lengocthien02/lengocthien/blob/main/Gold%20Price%20Analytics.ipynb))**  
+- **[Gold Price Forecasting ((https://github.com/lengocthien02/lengocthien/blob/main/Gold%20Price%20Analytics.ipynb))**  
   _Time series forecasting for gold prices using SARIMA._
   
 ## 🔗 Connect with me
