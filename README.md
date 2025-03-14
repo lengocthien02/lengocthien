@@ -70,11 +70,11 @@ Mô hình SARIMA được viết dưới dạng **SARIMA(p, d, q) x (P, D, Q, m)
 
 ### 📈 Xu hướng giá vàng theo tháng
 Biểu đồ dưới đây thể hiện biến động giá vàng qua thời gian:  
-![Xu hướng giá vàng](https://github.com/lengocthien02/lengocthien/commit/44fe683fd1e3e2f0cf20a1c2db7a51a1f38c08c2#diff-83269b8b9b59a74949a6db53be2ab4820a0ef1841e07d75ee19bf620fd306751)
+![Xu hướng giá vàng](https://github.com/lengocthien02/lengocthien/blob/main/Figure_1.png?raw=true)
 
 ### 🔮 Dự báo giá vàng với SARIMA
 Mô hình dự báo giá vàng trong 24 tháng tiếp theo dựa trên SARIMA:  
-![Dự báo giá vàng]([https://raw.githubusercontent.com/lengocthien02/gold-price-forecasting/main/images/sarima_forecast.png](https://github.com/lengocthien02/lengocthien/blob/main/Figure_1.png#:~:text=Figure_1.png-,Figure_2,-.png))
+![Dự báo giá vàng](https://github.com/lengocthien02/lengocthien/blob/main/Figure_2.png?raw=true)
 
 ---
 
