@@ -1,51 +1,120 @@
-# 📊 Gold Price Forecasting 📈
+# 📊 Dự báo giá vàng bằng SARIMA 📈
 
-This project analyzes and forecasts gold prices using time series techniques such as **SARIMA** and **Box-Cox transformation**. It includes visualization, stationarity checks, and model selection.
+Dự án này sử dụng mô hình **SARIMA** và **biến đổi Box-Cox** để phân tích và dự báo giá vàng.  
+Quy trình bao gồm kiểm tra tính dừng của dữ liệu, lựa chọn mô hình tối ưu bằng **Grid Search**, và dự báo giá vàng trong 24 tháng tới.
 
-## 📂 Project Overview
+---
 
-- **Data Source:** XAU/USD daily price data (`XAU_1d_data.csv`)
-- **Tools Used:** Python, Pandas, Matplotlib, Statsmodels, Scipy, Seaborn
-- **Forecasting Model:** SARIMA with Grid Search Optimization
+## 📂 Tổng quan dự án
 
-## 🛠 Key Features
+🔹 **Nguồn dữ liệu:** XAU/USD daily price (`XAU_1d_data.csv`)  
+🔹 **Công cụ sử dụng:** Python, Pandas, Matplotlib, Statsmodels, Scipy, Seaborn  
+🔹 **Mô hình dự báo:** SARIMA với tối ưu hóa Grid Search  
 
-### 1️⃣ **Data Processing**
-- Loads gold price data and converts `Date` column to **datetime format**.
-- Resamples data to **monthly averages**.
-- Handles missing values and extracts numerical features.
+---
 
-### 2️⃣ **Visualization**
-- Plots **monthly gold price trends**.
-- Uses **seasonal decomposition** to analyze trends & cycles.
+## 📖 Giới thiệu về thuật toán SARIMA
 
-### 3️⃣ **Stationarity Test**
-- Uses **Dickey-Fuller test** to check for stationarity.
-- Applies **Box-Cox transformation** and **differencing** to stabilize variance.
+### 1️⃣ **SARIMA là gì?**
+SARIMA (**Seasonal Autoregressive Integrated Moving Average**) là một mở rộng của mô hình **ARIMA**, giúp mô hình hóa dữ liệu chuỗi thời gian có yếu tố mùa vụ.
+SARIMA gồm các thành phần chính:
 
-### 4️⃣ **SARIMA Model Selection**
-- Uses **Grid Search** to find the best SARIMA parameters.
-- Selects the model with the lowest **AIC (Akaike Information Criterion)**.
+- **AR (Auto-Regressive - Tự hồi quy):** Phụ thuộc vào giá trị của chính nó trong quá khứ.
+- **I (Integrated - Tích hợp):** Khác biệt hóa để làm cho chuỗi trở nên dừng.
+- **MA (Moving Average - Trung bình trượt):** Dựa vào nhiễu của mô hình trong quá khứ.
+- **S (Seasonality - Mùa vụ):** Dự báo dựa trên chu kỳ mùa vụ.
 
-### 5️⃣ **Forecasting**
-- Predicts future gold prices for the next **24 months**.
-- Visualizes actual vs. forecasted prices.
+Mô hình SARIMA được viết dưới dạng **SARIMA(p, d, q) x (P, D, Q, m)**, trong đó:
+- **(p, d, q):** Tham số ARIMA cho dữ liệu không có mùa vụ.
+- **(P, D, Q, m):** Tham số mùa vụ:
+  - **P:** Số bậc của thành phần tự hồi quy mùa vụ.
+  - **D:** Số lần khác biệt hóa mùa vụ.
+  - **Q:** Số bậc của thành phần trung bình trượt mùa vụ.
+  - **m:** Chu kỳ mùa vụ (ví dụ: m = 12 nếu dữ liệu theo tháng).
 
-## 📊 Visualizations
+### 2️⃣ **Lý do chọn SARIMA cho dự báo giá vàng**
+- Dữ liệu giá vàng có yếu tố **chu kỳ hàng tháng** (m = 12).
+- Mô hình SARIMA có thể dự báo chính xác hơn khi dữ liệu có xu hướng và mùa vụ.
+- Có khả năng xử lý dữ liệu **không dừng** bằng cách kết hợp **khác biệt hóa (differencing)**.
+- Dễ dàng điều chỉnh thông số để phù hợp với từng bộ dữ liệu cụ thể.
 
-### **Gold Price Trends**
-![Gold Price Trend](https://github.com/user-attachments/assets/31640ad1-fbb3-431c-8ccd-45d35d24912a)
+---
 
-### **SARIMA Forecast**
-![Forecast](https://github.com/user-attachments/assets/d57e6caa-72db-4bf1-9983-3081c17c0f93)
+## 🛠 Các tính năng chính
 
-## 📝 Code Snippet
+### 1️⃣ **Xử lý dữ liệu**
+- Chuyển đổi cột `Date` sang **định dạng thời gian**.
+- Resample dữ liệu sang **giá trung bình theo tháng**.
+- Loại bỏ dữ liệu bị thiếu, giữ lại các cột số để phân tích.
+
+### 2️⃣ **Trực quan hóa dữ liệu**
+- Vẽ biểu đồ **xu hướng giá vàng theo tháng**.
+- Phân tích **thành phần xu hướng, mùa vụ** bằng phương pháp Seasonal Decomposition.
+
+### 3️⃣ **Kiểm tra tính dừng của chuỗi**
+- Sử dụng **Dickey-Fuller test** để xác định tính dừng.
+- Áp dụng **biến đổi Box-Cox** để xử lý phương sai không ổn định.
+- Dùng **khác biệt hóa (differencing)** để làm dừng chuỗi.
+
+### 4️⃣ **Lựa chọn mô hình SARIMA tối ưu**
+- Dùng **Grid Search** để thử nghiệm nhiều bộ tham số khác nhau.
+- Chọn mô hình có **giá trị AIC nhỏ nhất**.
+
+### 5️⃣ **Dự báo giá vàng**
+- Dự báo **24 tháng tiếp theo** dựa trên mô hình SARIMA tối ưu.
+- So sánh giá trị thực tế và giá trị dự báo trên biểu đồ.
+
+---
+
+## 📊 Trực quan hóa dữ liệu
+
+### 📈 Xu hướng giá vàng theo tháng
+Biểu đồ dưới đây thể hiện biến động giá vàng qua thời gian:  
+![Xu hướng giá vàng](https://github.com/lengocthien02/lengocthien/commit/44fe683fd1e3e2f0cf20a1c2db7a51a1f38c08c2#diff-83269b8b9b59a74949a6db53be2ab4820a0ef1841e07d75ee19bf620fd306751)
+
+### 🔮 Dự báo giá vàng với SARIMA
+Mô hình dự báo giá vàng trong 24 tháng tiếp theo dựa trên SARIMA:  
+![Dự báo giá vàng]([https://raw.githubusercontent.com/lengocthien02/gold-price-forecasting/main/images/sarima_forecast.png](https://github.com/lengocthien02/lengocthien/blob/main/Figure_1.png#:~:text=Figure_1.png-,Figure_2,-.png))
+
+---
+
+## 🚀 Cách sử dụng
+
+### 📥 1. Clone repository về máy
+```sh
+git clone https://github.com/lengocthien02/gold-price-forecasting.git
+cd gold-price-forecasting
+```
+
+### 📦 2. Cài đặt các thư viện cần thiết
+```sh
+pip install -r requirements.txt
+```
+
+### 🏃‍♂️ 3. Chạy script để dự báo
+```sh
+python forecast_gold_prices.py
+```
+
+---
+
+## 📝 Đoạn mã quan trọng
 
 ```python
-# Train SARIMA model with optimal parameters
+# Huấn luyện mô hình SARIMA với tham số tối ưu
 model = sm.tsa.statespace.SARIMAX(df_month['Close_box'].dropna(),
                                   order=(1, 1, 1),
                                   seasonal_order=(1, 1, 1, 12)).fit()
-                                  
-# Forecast next 24 months
+
+# Dự báo 24 tháng tiếp theo
 df_month2['forecast'] = invboxcox(model.predict(start=len(df_month), end=len(df_month2)-1), lmbda)
+```
+
+---
+
+## 📬 Liên hệ
+🔹 **GitHub:** [@lengocthien02](https://github.com/lengocthien02)  
+🔹 **LinkedIn:** [Your LinkedIn](https://linkedin.com/in/yourprofile)  
+🔹 **Email:** your-email@gmail.com  
+
+
