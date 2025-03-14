@@ -37,7 +37,7 @@ This project analyzes and forecasts gold prices using time series techniques suc
 ![Gold Price Trend](https://github.com/user-attachments/assets/31640ad1-fbb3-431c-8ccd-45d35d24912a)
 
 ### **SARIMA Forecast**
-![Forecast]([https://your-forecast-image-link.png](https://github.com/user-attachments/assets/d57e6caa-72db-4bf1-9983-3081c17c0f93))
+![Forecast](https://github.com/user-attachments/assets/d57e6caa-72db-4bf1-9983-3081c17c0f93)
 
 ## 📝 Code Snippet
 
