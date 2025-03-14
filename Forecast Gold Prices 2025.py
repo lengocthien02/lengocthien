@@ -72,8 +72,6 @@ for param in parameters_list:
     except:
         continue
 
-print(f'Best SARIMA Model: {best_param} with AIC: {best_aic}')
-
 # Hàm nghịch biến đổi Box-Cox
 def invboxcox(y, lmbda):
     return np.exp(y) if lmbda == 0 else np.power((lmbda * y + 1), 1 / lmbda)
