@@ -3,7 +3,7 @@
 Dự án này sử dụng mô hình **SARIMA** và **biến đổi Box-Cox** để phân tích và dự báo giá vàng.  
 Quy trình bao gồm kiểm tra tính dừng của dữ liệu, lựa chọn mô hình tối ưu bằng **Grid Search**, và dự báo giá vàng trong 24 tháng tới.
 
-![Dự báo giá vàng](https://github.com/lengocthien02/lengocthien/blob/ae0defff548c12cd9a35c8e6bfc030dc70528834/Forecast%20Gold%20Prices%202025.py)
+🔹 **Mã nguồn:** [Forecast Gold Prices 2025.py](https://github.com/lengocthien02/lengocthien/blob/ae0defff548c12cd9a35c8e6bfc030dc70528834/Forecast%20Gold%20Prices%202025.py)
 ---
 
 ## 📂 Tổng quan dự án
