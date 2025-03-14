@@ -82,20 +82,10 @@ Mô hình dự báo giá vàng trong 24 tháng tiếp theo dựa trên SARIMA:
 ## 🚀 Cách sử dụng
 
 ### 📥 1. Clone repository về máy
-```sh
-git clone https://github.com/lengocthien02/gold-price-forecasting.git
-cd gold-price-forecasting
-```
 
 ### 📦 2. Cài đặt các thư viện cần thiết
-```sh
-pip install -r requirements.txt
-```
 
 ### 🏃‍♂️ 3. Chạy script để dự báo
-```sh
-python forecast_gold_prices.py
-```
 
 ---
 
